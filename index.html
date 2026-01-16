@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafeesat Rabiu-Adebayo | Senior Program Manager Portfolio</title>
+    <style>
+        :root { --primary: #0f2942; --secondary: #1a4a6e; --accent: #c9a227; --light: #f8f9fa; --dark: #1a1a1a; --gray: #6b7280; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: Georgia, 'Times New Roman', serif; background-color: var(--light); color: var(--dark); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: Georgia, serif; font-weight: 600; line-height: 1.2; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15, 41, 66, 0.95); padding: 1rem 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        nav .logo { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+        nav .logo span { color: var(--accent); }
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
+        nav a { color: var(--white); text-decoration: none; font-size: 0.95rem; font-family: Arial, sans-serif; }
+        nav a:hover { color: var(--accent); }
+        .hero { min-height: 100vh; background: linear-gradient(135deg, #0f2942 0%, #1a4a6e 50%, #234d70 100%); display: flex; align-items: center; padding-top: 60px; }
+        .hero .container { max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-credentials { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .credential-badge { background: rgba(201, 162, 39, 0.2); border: 1px solid var(--accent); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; font-family: Arial, sans-serif; }
+        .hero h1 { font-size: 3.5rem; color: var(--white); margin-bottom: 1rem; }
+        .hero h1 span { color: var(--accent); }
+        .hero-subtitle { font-size: 1.35rem; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; font-family: Arial, sans-serif; }
+        .hero-description { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem; max-width: 540px; font-family: Arial, sans-serif; }
+        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+        .stat-item { text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .stat-number { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--accent); display: block; }
+        .stat-label { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.25rem; font-family: Arial, sans-serif; }
+        .hero-dashboard { background: var(--white); border-radius: 16px; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.3); }
+        .cta-buttons { display: flex; gap: 1rem; }
+        .btn { display: inline-flex; padding: 0.9rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; font-family: Arial, sans-serif; }
+        .btn-primary { background: var(--accent); color: var(--primary); }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+        section { padding: 5rem 0; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { display: inline-block; background: linear-gradient(135deg, #c9a227 0%, #e8d48a 100%); color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; font-family: Arial, sans-serif; }
+        .section-title { font-size: 2.75rem; color: var(--primary); margin-bottom: 1rem; }
+        .section-subtitle { color: var(--gray); font-size: 1.15rem; max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; }
+        .case-studies { background: var(--white); }
+        .case-study { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem; padding: 2.5rem; background: var(--light); border-radius: 24px; position: relative; }
+        .case-study::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(135deg, #c9a227 0%, #e8d48a 100%); border-radius: 24px 0 0 24px; }
+        .case-study:nth-child(even) { direction: rtl; }
+        .case-study:nth-child(even) > * { direction: ltr; }
+        .case-study-content h3 { font-size: 1.75rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .case-study-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+        .meta-tag { background: var(--primary); color: var(--white); padding: 0.3rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; font-family: Arial, sans-serif; }
+        .case-study-content p { color: var(--gray); margin-bottom: 1.5rem; font-size: 1.05rem; font-family: Arial, sans-serif; }
+        .case-study-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .metric-card { background: var(--white); padding: 1.25rem; border-radius: 12px; border-left: 3px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .metric-value { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .metric-label { color: var(--gray); font-size: 0.85rem; font-family: Arial, sans-serif; }
+        .dashboard-mockup { background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); overflow: hidden; }
+        .dashboard-header { background: var(--primary); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .dashboard-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dashboard-dot.red { background: #ff5f57; } .dashboard-dot.yellow { background: #ffbd2e; } .dashboard-dot.green { background: #28ca42; }
+        .dashboard-title { color: var(--white); font-size: 0.85rem; margin-left: 0.5rem; font-weight: 600; font-family: Arial, sans-serif; }
+        .dashboard-body { padding: 1.5rem; }
+        .skills-section { background: linear-gradient(135deg, #0f2942 0%, #1a4a6e 50%, #234d70 100%); color: var(--white); }
+        .skills-section .section-title { color: var(--white); }
+        .skills-section .section-subtitle { color: rgba(255,255,255,0.7); }
+        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .skill-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; }
+        .skill-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #c9a227 0%, #e8d48a 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.5rem; }
+        .skill-category h4 { font-size: 1.15rem; margin-bottom: 1rem; color: var(--white); }
+        .skill-list { list-style: none; }
+        .skill-list li { color: rgba(255,255,255,0.7); font-size: 0.95rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-family: Arial, sans-serif; }
+        .skill-list li:last-child { border-bottom: none; }
+        .certifications { background: var(--white); }
+        .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+        .cert-card { background: var(--light); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; border: 2px solid transparent; }
+        .cert-card:hover { border-color: var(--accent); }
+        .cert-logo { width: 60px; height: 60px; background: linear-gradient(135deg, #c9a227 0%, #e8d48a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-family: Georgia, serif; font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+        .cert-name { font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; font-family: Arial, sans-serif; }
+        .cert-issuer { color: var(--gray); font-size: 0.85rem; font-family: Arial, sans-serif; }
+        .education { background: var(--light); }
+        .education-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .edu-card { background: var(--white); padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 4px solid var(--accent); }
+        .edu-degree { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+        .edu-school { color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; font-family: Arial, sans-serif; }
+        .edu-details { color: var(--gray); font-size: 0.9rem; font-family: Arial, sans-serif; }
+        .contact { background: linear-gradient(135deg, #0f2942 0%, #1a4a6e 50%, #234d70 100%); color: var(--white); text-align: center; padding: 4rem 0; }
+        .contact .section-title { color: var(--white); }
+        .contact-info { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.8); font-family: Arial, sans-serif; }
+        .contact-icon { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        footer { background: #0a1929; color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.9rem; font-family: Arial, sans-serif; }
+        @media (max-width: 1200px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } .cert-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 992px) { .hero .container { grid-template-columns: 1fr; text-align: center; } .hero-description { margin: 0 auto 2rem; } .cta-buttons { justify-content: center; } .hero-stats { grid-template-columns: repeat(2, 1fr); } .case-study { grid-template-columns: 1fr; } .case-study:nth-child(even) { direction: ltr; } nav ul { display: none; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .section-title { font-size: 2rem; } .skills-grid { grid-template-columns: 1fr; } .cert-grid { grid-template-columns: repeat(2, 1fr); } .education-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav><div class="container"><a href="#" class="logo">N<span>.</span>Rabiu-Adebayo</a><ul><li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#skills">Skills</a></li><li><a href="#certifications">Certifications</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-credentials"><span class="credential-badge">PhD</span><span class="credential-badge">PMP®</span><span class="credential-badge">PMI-ACP®</span><span class="credential-badge">AWS Certified</span></div>
+                <h1>Nafeesat <span>Rabiu-Adebayo</span></h1>
+                <p class="hero-subtitle">Senior Program Manager | Strategic & Technical Programs</p>
+                <p class="hero-description">Driving measurable outcomes through data-driven execution, cross-functional leadership, and strategic stakeholder alignment across complex, multi-million dollar programs.</p>
+                <div class="cta-buttons"><a href="#portfolio" class="btn btn-primary">View Portfolio</a><a href="#contact" class="btn btn-secondary">Get in Touch</a></div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">$18.6M+</span><span class="stat-label">Portfolio Value</span></div>
+                    <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">On-Time Delivery</span></div>
+                    <div class="stat-item"><span class="stat-number">50K+</span><span class="stat-label">Users Served</span></div>
+                    <div class="stat-item"><span class="stat-number">8+</span><span class="stat-label">Years Experience</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-dashboard">
+                    <svg viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="500" height="350" fill="#f8f9fa" rx="8"/><rect width="500" height="50" fill="#0f2942" rx="8"/><rect y="40" width="500" height="20" fill="#0f2942"/>
+                        <text x="20" y="32" fill="white" font-family="Arial" font-size="14" font-weight="bold">Program Performance Dashboard</text><circle cx="460" cy="25" r="8" fill="#28ca42"/><text x="440" y="29" fill="white" font-family="Arial" font-size="10">LIVE</text>
+                        <rect x="15" y="65" width="110" height="70" fill="white" rx="8" stroke="#e5e7eb"/><text x="25" y="88" fill="#6b7280" font-family="Arial" font-size="10">Total Budget</text><text x="25" y="115" fill="#0f2942" font-family="Arial" font-size="20" font-weight="bold">$16.6M</text>
+                        <rect x="135" y="65" width="110" height="70" fill="white" rx="8" stroke="#e5e7eb"/><text x="145" y="88" fill="#6b7280" font-family="Arial" font-size="10">Components</text><text x="145" y="115" fill="#0f2942" font-family="Arial" font-size="20" font-weight="bold">3</text>
+                        <rect x="255" y="65" width="110" height="70" fill="white" rx="8" stroke="#e5e7eb"/><text x="265" y="88" fill="#6b7280" font-family="Arial" font-size="10">Export Growth</text><text x="265" y="115" fill="#0f2942" font-family="Arial" font-size="20" font-weight="bold">+23%</text>
+                        <rect x="375" y="65" width="110" height="70" fill="white" rx="8" stroke="#e5e7eb"/><text x="385" y="88" fill="#6b7280" font-family="Arial" font-size="10">Team Size</text><text x="385" y="115" fill="#0f2942" font-family="Arial" font-size="20" font-weight="bold">15</text>
+                        <rect x="15" y="150" width="320" height="185" fill="white" rx="8" stroke="#e5e7eb"/><text x="25" y="175" fill="#0f2942" font-family="Arial" font-size="12" font-weight="bold">Export Performance Trend</text>
+                        <path d="M50,300 L90,280 L130,270 L170,250 L210,235 L250,220 L290,200 L320,195 L320,300 Z" fill="rgba(201,162,39,0.2)"/><path d="M50,300 L90,280 L130,270 L170,250 L210,235 L250,220 L290,200 L320,195" fill="none" stroke="#c9a227" stroke-width="3"/>
+                        <rect x="345" y="150" width="140" height="185" fill="white" rx="8" stroke="#e5e7eb"/><text x="355" y="175" fill="#0f2942" font-family="Arial" font-size="12" font-weight="bold">Evaluation Status</text>
+                        <rect x="355" y="190" width="120" height="35" fill="#f0fdf4" rx="4"/><circle cx="370" cy="207" r="6" fill="#28ca42"/><text x="385" y="211" fill="#0f2942" font-family="Arial" font-size="11">Completed: 3</text>
+                        <rect x="355" y="235" width="120" height="35" fill="#fef9e7" rx="4"/><circle cx="370" cy="252" r="6" fill="#c9a227"/><text x="385" y="256" fill="#0f2942" font-family="Arial" font-size="11">On Track: 100%</text>
+                        <rect x="355" y="280" width="120" height="35" fill="#e3f2fd" rx="4"/><circle cx="370" cy="297" r="6" fill="#1a4a6e"/><text x="385" y="301" fill="#0f2942" font-family="Arial" font-size="11">KPIs: 12</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-studies" id="portfolio">
+        <div class="container">
+            <div class="section-header"><span class="section-label">Portfolio</span><h2 class="section-title">Featured Case Studies</h2><p class="section-subtitle">Delivering measurable impact through strategic program management and data-driven execution.</p></div>
+
+            <div class="case-study">
+                <div class="case-study-content">
+                    <h3>Bilateral Trade Program Evaluation</h3>
+                    <div class="case-study-meta"><span class="meta-tag">$16.6M Budget</span><span class="meta-tag">University of East Anglia</span><span class="meta-tag">2023-2025</span></div>
+                    <p>This bilateral trade initiative represented a complex, multi-government program designed to enhance export capabilities and economic development between two nations. The program encompassed three major components, with approximately 47% of the total budget allocated to infrastructure development.</p>
+                    <p>I owned end-to-end delivery of a comprehensive evaluation of this initiative, designing a Theory of Change framework to trace implementation across multiple government parastatals, private sector stakeholders, implementing agencies, and beneficiary communities.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-card"><div class="metric-value">3</div><div class="metric-label">Program Components Evaluated</div></div>
+                        <div class="metric-card"><div class="metric-value">100%</div><div class="metric-label">On-Time Completion</div></div>
+                        <div class="metric-card"><div class="metric-value">+23%</div><div class="metric-label">Export Growth</div></div>
+                        <div class="metric-card"><div class="metric-value">12</div><div class="metric-label">KPI Dashboards</div></div>
+                    </div>
+                </div>
+                <div class="case-study-visual"><div class="dashboard-mockup"><div class="dashboard-header"><span class="dashboard-dot red"></span><span class="dashboard-dot yellow"></span><span class="dashboard-dot green"></span><span class="dashboard-title">Export Performance Dashboard</span></div><div class="dashboard-body"><svg viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="105" height="50" fill="#f8f9fa" rx="6"/><text x="10" y="18" fill="#6b7280" font-family="Arial" font-size="9">Budget</text><text x="10" y="38" fill="#0f2942" font-family="Arial" font-size="16" font-weight="bold">$16.6M</text><rect x="115" y="0" width="105" height="50" fill="#f8f9fa" rx="6"/><text x="125" y="18" fill="#6b7280" font-family="Arial" font-size="9">Infrastructure</text><text x="125" y="38" fill="#0f2942" font-family="Arial" font-size="16" font-weight="bold">47%</text><rect x="230" y="0" width="105" height="50" fill="#f8f9fa" rx="6"/><text x="240" y="18" fill="#6b7280" font-family="Arial" font-size="9">Stakeholders</text><text x="240" y="38" fill="#0f2942" font-family="Arial" font-size="16" font-weight="bold">15+</text><rect x="345" y="0" width="105" height="50" fill="#f8f9fa" rx="6"/><text x="355" y="18" fill="#6b7280" font-family="Arial" font-size="9">Components</text><text x="355" y="38" fill="#0f2942" font-family="Arial" font-size="16" font-weight="bold">3</text><rect x="0" y="60" width="450" height="135" fill="#fafbfc" rx="4"/><path d="M20,180 L80,160 L140,145 L200,120 L260,105 L320,90 L380,70 L430,60" fill="none" stroke="#c9a227" stroke-width="3"/></svg></div></div></div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-content">
+                    <h3>Digital AgriTech Platform Development</h3>
+                    <div class="case-study-meta"><span class="meta-tag">Product Owner</span><span class="meta-tag">OCP Africa & IBM</span><span class="meta-tag">2018-2019</span></div>
+                    <p>Served as Product Owner for a digital agriculture platform developed in partnership with IBM, bridging domain expertise with technical development. Leveraged agricultural background to define features addressing real farmer needs.</p>
+                    <p>Managed product backlog prioritization, led sprint planning sessions with IBM engineering teams, and participated in every prototype testing session to ensure user-centric development.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-card"><div class="metric-value">$2M+</div><div class="metric-label">Investment Mobilized</div></div>
+                        <div class="metric-card"><div class="metric-value">+25%</div><div class="metric-label">Platform Adoption</div></div>
+                        <div class="metric-card"><div class="metric-value">+30%</div><div class="metric-label">Farmer Income</div></div>
+                        <div class="metric-card"><div class="metric-value">500+</div><div class="metric-label">Users Trained</div></div>
+                    </div>
+                </div>
+                <div class="case-study-visual"><div class="dashboard-mockup"><div class="dashboard-header"><span class="dashboard-dot red"></span><span class="dashboard-dot yellow"></span><span class="dashboard-dot green"></span><span class="dashboard-title">AgriTech Platform Analytics</span></div><div class="dashboard-body"><svg viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="220" height="100" fill="#f8f9fa" rx="8"/><text x="15" y="22" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">User Adoption by State</text><rect x="25" y="35" width="30" height="55" fill="#1a4a6e" rx="3"/><rect x="65" y="45" width="30" height="45" fill="#1a4a6e" rx="3"/><rect x="105" y="40" width="30" height="50" fill="#c9a227" rx="3"/><rect x="145" y="50" width="30" height="40" fill="#1a4a6e" rx="3"/><rect x="185" y="55" width="30" height="35" fill="#1a4a6e" rx="3"/><rect x="230" y="0" width="220" height="100" fill="#f8f9fa" rx="8"/><text x="245" y="22" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">KPI Achievement</text><circle cx="340" cy="60" r="30" fill="none" stroke="#e5e7eb" stroke-width="8"/><circle cx="340" cy="60" r="30" fill="none" stroke="#c9a227" stroke-width="8" stroke-dasharray="188" stroke-dashoffset="0" transform="rotate(-90 340 60)"/><text x="340" y="65" fill="#0f2942" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">15/15</text><rect x="0" y="110" width="450" height="85" fill="#f8f9fa" rx="8"/><text x="15" y="132" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Efficiency Gains</text><rect x="25" y="145" width="180" height="20" fill="#e8f5e9" rx="4"/><text x="35" y="159" fill="#28ca42" font-family="Arial" font-size="11" font-weight="bold">Manual Process: -40%</text><rect x="240" y="145" width="180" height="20" fill="#fff8e1" rx="4"/><text x="250" y="159" fill="#c9a227" font-family="Arial" font-size="11" font-weight="bold">Income Growth: +30%</text></svg></div></div></div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-content">
+                    <h3>National Logistics & Distribution Program</h3>
+                    <div class="case-study-meta"><span class="meta-tag">20 States</span><span class="meta-tag">TAK Logistics</span><span class="meta-tag">2016-2018</span></div>
+                    <p>Coordinated a nationwide fertilizer distribution program under the Presidential Fertilizer Initiative, managing logistics across 20 Nigerian states to serve over 50,000 customers with full ownership of budget, execution, and delivery timelines.</p>
+                    <p>Collaborated with engineers to deploy GPS tracking systems on transport trucks and supervised the central control room monitoring real-time vehicle movements and system incidents.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-card"><div class="metric-value">50K+</div><div class="metric-label">Customers Served</div></div>
+                        <div class="metric-card"><div class="metric-value">100%</div><div class="metric-label">Coverage Achieved</div></div>
+                        <div class="metric-card"><div class="metric-value">-20%</div><div class="metric-label">Distribution Leakage</div></div>
+                        <div class="metric-card"><div class="metric-value">+35%</div><div class="metric-label">Targeting Accuracy</div></div>
+                    </div>
+                </div>
+                <div class="case-study-visual"><div class="dashboard-mockup"><div class="dashboard-header"><span class="dashboard-dot red"></span><span class="dashboard-dot yellow"></span><span class="dashboard-dot green"></span><span class="dashboard-title">Distribution Control Center</span></div><div class="dashboard-body"><svg viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="260" height="130" fill="#e8f4f8" rx="8"/><text x="15" y="22" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Live Fleet Tracking</text><path d="M50,40 L80,35 L130,40 L180,35 L220,45 L230,70 L225,100 L200,115 L150,113 L100,110 L60,95 L45,70 L50,50 Z" fill="#d4e6ed" stroke="#1a4a6e" stroke-width="2"/><circle cx="100" cy="60" r="5" fill="#28ca42"/><circle cx="150" cy="75" r="5" fill="#28ca42"/><circle cx="180" cy="65" r="5" fill="#c9a227"/><circle cx="130" cy="90" r="5" fill="#28ca42"/><rect x="270" y="0" width="180" height="130" fill="#f8f9fa" rx="8"/><text x="285" y="22" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Real-Time Status</text><rect x="285" y="35" width="150" height="28" fill="#f0fdf4" rx="4"/><text x="295" y="54" fill="#28ca42" font-family="Arial" font-size="11" font-weight="bold">Deliveries: 234</text><rect x="285" y="70" width="150" height="28" fill="#fff8e1" rx="4"/><text x="295" y="89" fill="#c9a227" font-family="Arial" font-size="11" font-weight="bold">En Route: 47</text><rect x="285" y="105" width="150" height="20" fill="white" rx="4" stroke="#e5e7eb"/><text x="295" y="119" fill="#0f2942" font-family="Arial" font-size="10">States: 20/20 ✓</text><rect x="0" y="140" width="450" height="55" fill="#f8f9fa" rx="8"/><text x="15" y="162" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Performance</text><text x="15" y="182" fill="#6b7280" font-family="Arial" font-size="9">On Time: 96%</text><rect x="90" y="173" width="100" height="10" fill="#e5e7eb" rx="5"/><rect x="90" y="173" width="96" height="10" fill="#28ca42" rx="5"/><text x="240" y="182" fill="#6b7280" font-family="Arial" font-size="9">Accuracy: 90%</text><rect x="320" y="173" width="100" height="10" fill="#e5e7eb" rx="5"/><rect x="320" y="173" width="90" height="10" fill="#c9a227" rx="5"/></svg></div></div></div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-content">
+                    <h3>Multi-City Urban Infrastructure Analysis</h3>
+                    <div class="case-study-meta"><span class="meta-tag">7 African Cities</span><span class="meta-tag">University of Manchester</span><span class="meta-tag">Research Collaboration</span></div>
+                    <p>Conducted comprehensive analysis of urban planning documents used in the development of seven African cities: Cairo, Kampala, Lilongwe, Maputo, Mogadishu, Freetown, and Lagos. The project aimed to identify planning considerations that were properly addressed versus those that were lacking.</p>
+                    <p>Developed analytical frameworks connecting historical planning decisions to current urban challenges, producing insights applicable to emerging city development initiatives.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-card"><div class="metric-value">7</div><div class="metric-label">Cities Analyzed</div></div>
+                        <div class="metric-card"><div class="metric-value">50+</div><div class="metric-label">Documents Reviewed</div></div>
+                        <div class="metric-card"><div class="metric-value">12</div><div class="metric-label">Key Indicators</div></div>
+                        <div class="metric-card"><div class="metric-value">3</div><div class="metric-label">Research Outputs</div></div>
+                    </div>
+                </div>
+                <div class="case-study-visual"><div class="dashboard-mockup"><div class="dashboard-header"><span class="dashboard-dot red"></span><span class="dashboard-dot yellow"></span><span class="dashboard-dot green"></span><span class="dashboard-title">Urban Planning Analysis</span></div><div class="dashboard-body"><svg viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="450" height="95" fill="#f8f9fa" rx="8"/><text x="15" y="22" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Planning Standards Compliance by City</text><text x="60" y="40" fill="#6b7280" font-family="Arial" font-size="7">Cairo</text><text x="105" y="40" fill="#6b7280" font-family="Arial" font-size="7">Kampala</text><text x="155" y="40" fill="#6b7280" font-family="Arial" font-size="7">Lilongwe</text><text x="210" y="40" fill="#6b7280" font-family="Arial" font-size="7">Maputo</text><text x="260" y="40" fill="#6b7280" font-family="Arial" font-size="7">Mogadishu</text><text x="320" y="40" fill="#6b7280" font-family="Arial" font-size="7">Freetown</text><text x="380" y="40" fill="#6b7280" font-family="Arial" font-size="7">Lagos</text><rect x="55" y="48" width="30" height="14" fill="#28ca42" rx="2"/><rect x="100" y="48" width="30" height="14" fill="#7dd87d" rx="2"/><rect x="150" y="48" width="30" height="14" fill="#28ca42" rx="2"/><rect x="205" y="48" width="30" height="14" fill="#ffd93d" rx="2"/><rect x="260" y="48" width="30" height="14" fill="#ff6b6b" rx="2"/><rect x="315" y="48" width="30" height="14" fill="#ffd93d" rx="2"/><rect x="375" y="48" width="30" height="14" fill="#28ca42" rx="2"/><rect x="55" y="66" width="30" height="14" fill="#ffd93d" rx="2"/><rect x="100" y="66" width="30" height="14" fill="#ff6b6b" rx="2"/><rect x="150" y="66" width="30" height="14" fill="#7dd87d" rx="2"/><rect x="205" y="66" width="30" height="14" fill="#28ca42" rx="2"/><rect x="260" y="66" width="30" height="14" fill="#ffd93d" rx="2"/><rect x="315" y="66" width="30" height="14" fill="#7dd87d" rx="2"/><rect x="375" y="66" width="30" height="14" fill="#ffd93d" rx="2"/><rect x="0" y="105" width="450" height="90" fill="#f8f9fa" rx="8"/><text x="15" y="127" fill="#0f2942" font-family="Arial" font-size="11" font-weight="bold">Gap Analysis by Category</text><text x="90" y="150" fill="#6b7280" font-family="Arial" font-size="9" text-anchor="end">Infrastructure</text><rect x="100" y="140" width="200" height="14" fill="#e5e7eb" rx="3"/><rect x="100" y="140" width="170" height="14" fill="#28ca42" rx="3"/><text x="310" y="151" fill="#6b7280" font-family="Arial" font-size="9">85%</text><text x="90" y="175" fill="#6b7280" font-family="Arial" font-size="9" text-anchor="end">Environment</text><rect x="100" y="165" width="200" height="14" fill="#e5e7eb" rx="3"/><rect x="100" y="165" width="140" height="14" fill="#c9a227" rx="3"/><text x="310" y="176" fill="#6b7280" font-family="Arial" font-size="9">70%</text></svg></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header"><span class="section-label">Expertise</span><h2 class="section-title">Technical Competencies</h2><p class="section-subtitle">A comprehensive toolkit for delivering complex programs at scale.</p></div>
+            <div class="skills-grid">
+                <div class="skill-category"><div class="skill-icon">📋</div><h4>Program Management</h4><ul class="skill-list"><li>Portfolio Management</li><li>Agile / Scrum / SAFe</li><li>Risk & Dependency Management</li><li>Budget Ownership</li><li>Strategic Planning</li></ul></div>
+                <div class="skill-category"><div class="skill-icon">🛠️</div><h4>Project Tools</h4><ul class="skill-list"><li>JIRA & Confluence</li><li>Asana</li><li>Smartsheet</li><li>MS Project</li><li>Trello</li></ul></div>
+                <div class="skill-category"><div class="skill-icon">📊</div><h4>Data & Analytics</h4><ul class="skill-list"><li>Power BI & Tableau</li><li>SQL</li><li>Excel (Advanced)</li><li>Python & Stata</li><li>Dashboard Design</li></ul></div>
+                <div class="skill-category"><div class="skill-icon">☁️</div><h4>Cloud & AI</h4><ul class="skill-list"><li>AWS (EC2, S3, Lambda)</li><li>Generative AI Tools</li><li>Prompt Engineering</li><li>Process Automation</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header"><span class="section-label">Credentials</span><h2 class="section-title">Professional Certifications</h2><p class="section-subtitle">Industry-recognized credentials validating expertise.</p></div>
+            <div class="cert-grid">
+                <div class="cert-card"><div class="cert-logo">PMP</div><div class="cert-name">PMP®</div><div class="cert-issuer">Project Management Institute</div></div>
+                <div class="cert-card"><div class="cert-logo">ACP</div><div class="cert-name">PMI-ACP®</div><div class="cert-issuer">Project Management Institute</div></div>
+                <div class="cert-card"><div class="cert-logo">AWS</div><div class="cert-name">Cloud Practitioner</div><div class="cert-issuer">Amazon Web Services</div></div>
+                <div class="cert-card"><div class="cert-logo">AI</div><div class="cert-name">Gen AI for PM</div><div class="cert-issuer">Project Management Institute</div></div>
+                <div class="cert-card"><div class="cert-logo">W</div><div class="cert-name">Strategic Management</div><div class="cert-issuer">Wharton Business School</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header"><span class="section-label">Academic Background</span><h2 class="section-title">Education</h2><p class="section-subtitle">A foundation of rigorous academic training.</p></div>
+            <div class="education-grid">
+                <div class="edu-card"><div class="edu-degree">PhD, Development Economics</div><div class="edu-school">University of East Anglia</div><div class="edu-details">United Kingdom | 2025</div></div>
+                <div class="edu-card"><div class="edu-degree">MA, Global Affairs & Human Security</div><div class="edu-school">University of Baltimore</div><div class="edu-details">USA | GPA: 3.97/4.0</div></div>
+                <div class="edu-card"><div class="edu-degree">MSc, Agricultural Extension</div><div class="edu-school">University of Ilorin</div><div class="edu-details">Nigeria</div></div>
+                <div class="edu-card"><div class="edu-degree">BSc, Agriculture (Honours)</div><div class="edu-school">University of Ilorin</div><div class="edu-details">Nigeria</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header"><span class="section-label" style="background: rgba(255,255,255,0.2); color: white;">Get in Touch</span><h2 class="section-title">Let's Connect</h2><p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Open to discussing program management opportunities in technology and innovation.</p></div>
+            <div class="contact-info">
+                <div class="contact-item"><div class="contact-icon">✉️</div><span>nafeezie@gmail.com</span></div>
+                <div class="contact-item"><div class="contact-icon">📱</div><span>+1 702-573-0977</span></div>
+                <div class="contact-item"><div class="contact-icon">💼</div><span>LinkedIn: nafeesat-rabiu-adebayo-phd</span></div>
+                <div class="contact-item"><div class="contact-icon">📍</div><span>Henderson, Nevada, USA</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>© 2025 Nafeesat Rabiu-Adebayo. All rights reserved.</p></footer>
+    <script>document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});});});</script>
+</body>
+</html>
